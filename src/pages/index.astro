@@ -58,8 +58,8 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
       </div>
     </div>
     <div class="project-preview-grid">
-      {projects.slice(0, 2).map((project, index) => (
-        <article class:list={["project-preview", { "project-preview-wide": index === 1 }]}>
+      {projects.slice(0, 2).map((project) => (
+        <article class="project-preview">
           <a href={`${base}research/#${project.slug}`}>
             <div class="preview-image light-figure">
               <img src={`${base}${project.images[0].src}`} alt={project.images[0].alt} loading="lazy" />
