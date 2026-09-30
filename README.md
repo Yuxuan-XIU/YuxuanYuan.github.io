@@ -17,3 +17,5 @@ pnpm dev
 ```
 
 The production site is configured for the `/YuxuanYuan.github.io/` GitHub Pages base path.
+
+Updates pushed to `main` are built and deployed automatically with GitHub Actions.
