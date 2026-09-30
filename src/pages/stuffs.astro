@@ -1,13 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionIntro from "../components/SectionIntro.astro";
-
-const resources = [
-  { name: "NASA Exoplanet Archive", kind: "Database", href: "https://exoplanetarchive.ipac.caltech.edu/", note: "Confirmed planets, candidates, host stars, and mission data." },
-  { name: "The Extrasolar Planets Encyclopaedia", kind: "Catalogue", href: "https://exoplanet.eu/", note: "A long-running catalogue of planets beyond the Solar System." },
-  { name: "NASA ADS", kind: "Literature", href: "https://ui.adsabs.harvard.edu/", note: "The literature search I return to for astronomy and astrophysics." },
-  { name: "Astropy", kind: "Software", href: "https://www.astropy.org/", note: "A foundational Python toolkit for working with astronomical data." }
-];
 ---
 
 <BaseLayout title="Stuffs · Yuxuan Yuan" description="Notes, resources, small projects, and other things collected by Yuxuan Yuan.">
@@ -31,20 +24,4 @@ const resources = [
     </article>
   </section>
 
-  <section class="resources shell" aria-labelledby="resources-heading">
-    <div class="section-heading">
-      <p class="section-kicker">A useful shelf</p>
-      <h2 id="resources-heading">Resources I return to.</h2>
-    </div>
-    <div class="resource-list">
-      {resources.map((resource, index) => (
-        <a href={resource.href} target="_blank" rel="noreferrer">
-          <span class="resource-index">{String(index + 1).padStart(2, "0")}</span>
-          <span class="resource-main"><strong>{resource.name}</strong><small>{resource.note}</small></span>
-          <span class="resource-kind">{resource.kind}</span>
-          <span class="resource-arrow" aria-hidden="true">↗</span>
-        </a>
-      ))}
-    </div>
-  </section>
 </BaseLayout>
