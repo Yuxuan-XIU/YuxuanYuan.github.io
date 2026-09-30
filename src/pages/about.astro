@@ -19,6 +19,19 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
       <p>At the Ditan Book Fair in Beijing’s Temple of Earth Park, where I found a pocket edition of *The Lord of the Rings* to add to my collection.</p>
     </div>
     <div class="about-copy">
+      <section class="education" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <ol>
+          <li>
+            <time>2026—present</time>
+            <div><h3>PhD in Astronomy</h3><p>Tsinghua University</p></div>
+          </li>
+          <li>
+            <time>2022—2026</time>
+            <div><h3>Undergraduate Study</h3><p>University of Science and Technology of China</p></div>
+          </li>
+        </ol>
+      </section>
       <p class="lead">I was born in Ji’an, Jiangxi, and grew up in a small contryside. Far from the glow of city lights, I grew up beneath the star-filled skies of southern China. That early curiosity and the love for science fictions eventually led me to astronomy.</p>
       <p>Beyond research, I love stand-up comdey and skecth. I also enjoy writing stories and building small apps for my friends.  </p>
       <div class="about-actions">
@@ -26,20 +39,6 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
         <a class="button button-quiet" href={site.cv} target="_blank" rel="noreferrer">Read my CV <span aria-hidden="true">↗</span></a>
       </div>
     </div>
-  </section>
-
-  <section class="education shell" aria-labelledby="education-heading">
-    <h2 id="education-heading">Education</h2>
-    <ol>
-      <li>
-        <time>2026—present</time>
-        <div><h3>PhD in Astronomy</h3><p>Tsinghua University</p></div>
-      </li>
-      <li>
-        <time>2022—2026</time>
-        <div><h3>Undergraduate Study</h3><p>University of Science and Technology of China</p></div>
-      </li>
-    </ol>
   </section>
 
   <section class="contact-strip shell">
