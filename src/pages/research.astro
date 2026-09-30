@@ -30,7 +30,7 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
       <h2 id="project-list-heading">Selected projects</h2>
     </div>
     {projects.map((project) => (
-      <article class:list={["project-detail", { "project-detail-compact": project.slug === "hd80653b-transit" }]} id={project.slug}>
+      <article class="project-detail" id={project.slug}>
         <header>
           <p class="project-number">{project.number}</p>
           <div>
