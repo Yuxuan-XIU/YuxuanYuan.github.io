@@ -420,8 +420,29 @@ h2 {
 .resource-arrow { color: var(--cyan); }
 
 .about-profile { padding: clamp(4.5rem, 8vw, 7.5rem) 0 clamp(7rem, 12vw, 11rem); display: grid; grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
-.about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; filter: saturate(.8); }
-.about-photo > p { margin-top: .7rem; color: var(--faint); font: .62rem var(--mono); }
+.about-photo { width: min(100%, 430px); }
+.about-photo-frame {
+  padding: clamp(.45rem, .8vw, .7rem);
+  border: 1px solid var(--line-bright);
+  background: linear-gradient(145deg, rgba(112, 215, 237, .09), rgba(255, 255, 255, .025));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .28);
+}
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgba(8, 13, 23, .12);
+  filter: saturate(.88) contrast(1.025);
+}
+.about-photo > p {
+  max-width: 48ch;
+  margin: 1rem .15rem 0;
+  padding-left: .85rem;
+  border-left: 1px solid var(--line-bright);
+  color: var(--faint);
+  font: .62rem/1.65 var(--mono);
+}
 .about-copy { padding-top: 0; }
 .about-copy > p { max-width: 650px; color: var(--muted); font-size: 1rem; }
 .about-heading { margin-bottom: 3rem; }
