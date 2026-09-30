@@ -11,13 +11,13 @@ export const site = {
 export const researchAreas = [
   {
     index: "01",
-    title: "Exoplanet Atmospheres",
-    description: "Reading the physical and chemical stories encoded in the light that passes through distant atmospheres."
+    title: "Planet Detection",
+    description: "Finding subtle planetary signals and constraining the properties of worlds beyond the Solar System."
   },
   {
     index: "02",
-    title: "Planet Detection",
-    description: "Finding subtle planetary signals and constraining the properties of worlds beyond the Solar System."
+    title: "Exoplanet Atmospheres",
+    description: "Reading the physical and chemical stories encoded in the light that passes through distant atmospheres."
   },
   {
     index: "03",
