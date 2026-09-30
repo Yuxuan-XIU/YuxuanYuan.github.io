@@ -353,37 +353,31 @@ h2 {
 .project-number { color: var(--faint); font: .7rem var(--mono); }
 .project-detail h3 { max-width: 790px; margin: .9rem 0 1.2rem; font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 4.2rem); font-weight: 400; line-height: 1; letter-spacing: -.025em; }
 .project-summary { max-width: 680px; color: var(--muted); font-size: 1rem; }
-.project-figures { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-.project-figures-double { grid-template-columns: repeat(2, 1fr); }
+.project-figures { display: grid; grid-template-columns: 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+.project-figures-double { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .project-figures figure { margin: 0; }
-.project-figures figure a { display: grid; place-items: center; min-height: 320px; padding: 1.2rem; overflow: hidden; border: 1px solid var(--line); background: #f8f9fb; }
-.project-figures img { width: 100%; max-height: 680px; object-fit: contain; transition: transform .4s ease; }
-.project-figures a:hover img { transform: scale(1.018); }
+.project-figures figure a {
+  display: grid;
+  place-items: center;
+  padding: clamp(.45rem, .8vw, .75rem);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(112, 215, 237, .09), rgba(255, 255, 255, .025));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .18);
+}
+.project-figures img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(8, 13, 23, .1);
+  background: #f7f8fa;
+  transition: transform .45s ease, filter .45s ease;
+}
+.project-figures a:hover img { transform: scale(1.012); filter: contrast(1.025); }
+.project-figures a:focus-visible { outline: 1px solid var(--cyan); outline-offset: .65rem; }
 .project-figures figcaption { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem .15rem 0; color: var(--muted); font-size: .72rem; }
 .project-figures figcaption span { color: var(--cyan); white-space: nowrap; }
-
-.project-detail-compact {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
-  gap: clamp(3rem, 8vw, 8rem);
-  align-items: center;
-}
-.project-detail-compact > header { margin-bottom: 0; }
-.project-detail-compact .project-figures figure a {
-  min-height: 0;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  border-color: var(--line-bright);
-  background:
-    radial-gradient(circle at 50% 44%, rgba(233, 201, 133, .14), transparent 28%),
-    radial-gradient(circle at 50% 56%, rgba(112, 215, 237, .09), transparent 48%),
-    var(--night-soft);
-}
-.project-detail-compact .project-figures img {
-  width: min(100%, 310px);
-  max-height: none;
-  border-radius: 34px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
-}
+#vega-companion .project-figures { width: min(100%, 980px); }
+#hd80653b-transit .project-figures { width: min(100%, 380px); margin-left: auto; }
 
 .outreach-stories { padding-bottom: clamp(7rem, 12vw, 12rem); }
 .outreach-story { min-height: 610px; padding: 5rem 0; display: grid; grid-template-columns: .4fr 1.05fr .85fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; border-top: 1px solid var(--line); }
@@ -482,9 +476,7 @@ h2 {
   .research-pillars h2 { margin-top: 2rem; }
   .project-detail > header { grid-template-columns: .12fr 1.88fr; }
   .project-figures-double { grid-template-columns: 1fr; }
-  .project-detail-compact { grid-template-columns: 1fr; gap: 2.5rem; }
-  .project-detail-compact > header { margin-bottom: 0; }
-  .project-detail-compact .project-figures { width: min(100%, 480px); margin-left: auto; }
+  #hd80653b-transit .project-figures { margin-left: 0; }
   .outreach-story { grid-template-columns: .25fr 1.75fr; }
   .story-visual { grid-column: 2; width: min(100%, 480px); }
   .misc-grid article { min-height: 390px; }
@@ -500,7 +492,7 @@ h2 {
   .button { width: 100%; }
   .hero-visual { width: 92%; }
   .project-detail > header { grid-template-columns: 1fr; gap: .5rem; }
-  .project-figures figure a { min-height: 220px; padding: .6rem; }
+  .project-figures figure a { padding: .45rem; }
   .project-figures figcaption { flex-direction: column; }
   .outreach-story { grid-template-columns: 1fr; padding-block: 3.5rem; }
   .story-index, .story-visual { grid-column: 1; }
