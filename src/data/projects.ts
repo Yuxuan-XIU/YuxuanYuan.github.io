@@ -3,19 +3,19 @@ export const projects = [
     slug: "orbital-dynamics",
     number: "01",
     eyebrow: "Orbital dynamics",
-    title: "Periodic Orbits & Mean-motion Resonances",
-    summary: "Exploring the structure and stability of resonant planetary systems through periodic-orbit families and numerical searches.",
+    title: "Inclination Resonance",
+    summary: "Investigating the dynamical origin of inclination excitation in migrating resonant planetary systems, with emphasis on periodic-orbit families, vertical instability, and conditions governing the onset of inclination resonance.",
     status: "Ongoing research",
     images: [
       {
         src: "assets/projects/periodic-orbits.webp",
-        alt: "Families of stable and unstable periodic trajectories in eccentricity space",
-        caption: "Stable and unstable branches across a family of periodic solutions."
+        alt: "Families of periodic orbits of 2:1 MMR",
+        caption: "Families of periodic orbits of 2:1 MMR"
       },
       {
         src: "assets/projects/koi134-search.webp",
-        alt: "Numerical solution searches for two-to-one, three-to-one and four-to-one mean-motion resonances",
-        caption: "A numerical search across several mean-motion resonances for KOI-134."
+        alt: "Searching solution with Jnkepler",
+        caption: "Searching solution by optimizing reduced chi squire with Jnkepler"
       }
     ]
   },
@@ -24,7 +24,7 @@ export const projects = [
     number: "02",
     eyebrow: "Planet detection",
     title: "Constraining a Planet Candidate around Vega",
-    summary: "Testing where a possible companion could remain detectable by mapping signal-to-noise across orbital inclination and planet radius.",
+    summary: "Searching for a possible planetary signal around Vega in high-resolution spectra by searrching atmospheric emission features and constraining its properties through injection-and-recovery tests.",
     status: "Research project",
     images: [
       {
@@ -39,7 +39,7 @@ export const projects = [
     number: "03",
     eyebrow: "Transit geometry",
     title: "The Transit of HD 80653 b",
-    summary: "A geometric view of a close-in planet crossing its host star, connecting orbital configuration to the transit signal we observe.",
+    summary: "A geometric view of HD 80653 b in transit, where its extreme proximity to the host star may drive atmospheric escape and produce an extended envelope of escaping material.",
     status: "Research project",
     images: [
       {
