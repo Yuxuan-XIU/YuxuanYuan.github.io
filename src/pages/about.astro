@@ -1,24 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SectionIntro from "../components/SectionIntro.astro";
 import { site } from "../data/site";
 
 const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title="About · Yuxuan Yuan" description="About Yuxuan Yuan, a PhD student in astronomy at Tsinghua University.">
-  <SectionIntro
-    eyebrow="About"
-    title="Exoplanet explorer."
-    intro="I am a PhD student at Tsinghua University, working on exoplanet detection, atmospheres, and orbital dynamics."
-  />
-
   <section class="about-profile shell">
     <div class="about-photo">
       <img src={`${base}assets/yuxuan-ditang.jpg`} alt="Yuxuan Yuan visiting the Temple of Earth in Beijing" />
-      <p>At the Ditan Book Fair in Beijing’s Temple of Earth Park, where I found a pocket edition of *The Lord of the Rings* to add to my collection.</p>
+      <p>At the Ditan Book Fair in Beijing’s Temple of Earth Park, where I found a pocket edition of <em>The Lord of the Rings</em> to add to my collection.</p>
     </div>
     <div class="about-copy">
+      <header class="about-heading">
+        <p class="eyebrow"><span></span>About</p>
+        <h1>Exoplanet explorer.</h1>
+        <p class="about-intro">I am a PhD student at Tsinghua University, working on exoplanet detection, atmospheres, and orbital dynamics.</p>
+      </header>
       <section class="education" aria-labelledby="education-heading">
         <h2 id="education-heading">Education</h2>
         <ol>
