@@ -8,7 +8,9 @@ const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL :
 <BaseLayout title="About · Yuxuan Yuan" description="About Yuxuan Yuan, a PhD student in astronomy at Tsinghua University.">
   <section class="about-profile shell">
     <div class="about-photo">
-      <img src={`${base}assets/yuxuan-ditang.jpg`} alt="Yuxuan Yuan visiting the Temple of Earth in Beijing" />
+      <div class="about-photo-frame">
+        <img src={`${base}assets/yuxuan-ditang.jpg`} alt="Yuxuan Yuan visiting the Temple of Earth in Beijing" />
+      </div>
       <p>At the Ditan Book Fair in Beijing’s Temple of Earth Park, where I found a pocket edition of <em>The Lord of the Rings</em> to add to my collection.</p>
     </div>
     <div class="about-copy">
