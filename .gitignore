@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+
+# Local source-image inboxes (optimized copies live in public/assets)
+个人简介/
+项目/

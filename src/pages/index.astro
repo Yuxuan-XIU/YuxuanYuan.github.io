@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { researchAreas } from "../data/site";
+import { projects } from "../data/projects";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout>
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> Exoplanet science · Tsinghua University</p>
+      <h1>Looking for<br /><em>other worlds.</em></h1>
+      <p class="hero-intro">
+        I’m Yuxuan Yuan, a PhD student in astronomy studying how exoplanets are detected,
+        what their atmospheres reveal, and how planetary systems evolve.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={`${base}research/`}>Explore my research <span aria-hidden="true">→</span></a>
+        <a class="button button-quiet" href={`${base}about/`}>More about me</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="Portrait of Yuxuan Yuan">
+      <div class="portrait-frame">
+        <img src={`${base}assets/yuxuan-huangshan.jpg`} alt="Yuxuan Yuan hiking in Huangshan" />
+      </div>
+      <div class="coordinate-label coordinate-top" aria-hidden="true">30.1318° N · 118.1685° E</div>
+      <div class="coordinate-label coordinate-side" aria-hidden="true">SEEKING SIGNALS</div>
+      <div class="planet-marker" aria-hidden="true"><span></span></div>
+    </div>
+
+    <p class="hero-aside">ATMOSPHERES <span>·</span> DETECTION <span>·</span> DYNAMICS</p>
+  </section>
+
+  <section class="research-intro shell" aria-labelledby="research-heading">
+    <div class="section-heading">
+      <p class="section-kicker">Research coordinates</p>
+      <h2 id="research-heading">Three ways of getting<br />to know a distant planet.</h2>
+    </div>
+    <div class="research-grid">
+      {researchAreas.map((area) => (
+        <article class="research-area">
+          <p class="area-index">{area.index}</p>
+          <h3>{area.title}</h3>
+          <p>{area.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="home-projects shell" aria-labelledby="projects-heading">
+    <div class="section-heading section-heading-compact">
+      <p class="section-kicker">Selected work</p>
+      <div>
+        <h2 id="projects-heading">Research in progress.</h2>
+        <a class="text-link" href={`${base}research/`}>View all research <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="project-preview-grid">
+      {projects.slice(0, 2).map((project, index) => (
+        <article class:list={["project-preview", { "project-preview-wide": index === 1 }]}>
+          <a href={`${base}research/#${project.slug}`}>
+            <div class="preview-image light-figure">
+              <img src={`${base}${project.images[0].src}`} alt={project.images[0].alt} loading="lazy" />
+            </div>
+            <div class="preview-copy">
+              <p>{project.eyebrow} <span>·</span> {project.status}</p>
+              <h3>{project.title}</h3>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="home-outreach shell">
+    <p class="section-kicker">Beyond research</p>
+    <div>
+      <h2>Astronomy becomes more meaningful when it is shared.</h2>
+      <p>From a Women’s Day gathering to an exoplanet talk at my former high school, I enjoy bringing the questions of astronomy into new rooms.</p>
+      <a class="button button-quiet" href={`${base}outreach/`}>Explore outreach <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</BaseLayout>

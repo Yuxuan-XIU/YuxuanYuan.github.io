@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+---
+
+<BaseLayout title="Outreach · Yuxuan Yuan" description="Astronomy outreach and public talks by Yuxuan Yuan.">
+  <SectionIntro
+    eyebrow="Outreach"
+    title="Sharing the questions that make astronomy exciting."
+    intro="Science is not only a set of results. It is also a way of asking questions together. I enjoy creating spaces where more people can encounter astronomy on their own terms."
+  />
+
+  <section class="outreach-stories shell" aria-label="Outreach stories">
+    <article class="outreach-story">
+      <div class="story-index">
+        <span>01</span>
+        <p>Women’s Day<br />Small gathering</p>
+      </div>
+      <div class="story-copy">
+        <p class="section-kicker">Talk</p>
+        <h2>“Playing Academia”</h2>
+        <p>I gave a talk at <em>Xueshu Guojiajia</em> (“Playing Academia”), a small gathering held around International Women’s Day. It was an opportunity to share, reflect, and talk about life around academic work in a more open and informal setting.</p>
+        <p class="story-note">Talk materials and photographs will be added here later.</p>
+      </div>
+      <div class="story-visual story-visual-talk" aria-hidden="true">
+        <span class="signal signal-a"></span>
+        <span class="signal signal-b"></span>
+        <span class="signal signal-c"></span>
+        <b>∞</b>
+      </div>
+    </article>
+
+    <article class="outreach-story outreach-story-reverse">
+      <div class="story-index">
+        <span>02</span>
+        <p>Luotian High School<br />Exoplanet outreach</p>
+      </div>
+      <div class="story-copy">
+        <p class="section-kicker">School visit</p>
+        <h2>Taking exoplanets back to my high school.</h2>
+        <p>At Luotian High School, my former school, I introduced students to the worlds beyond our Solar System: how we detect them, what their light can tell us, and why these distant planets are worth searching for.</p>
+        <p class="story-note">Photographs from the visit can be added when available.</p>
+      </div>
+      <div class="story-visual story-visual-transit" aria-hidden="true">
+        <div class="transit-star"></div>
+        <div class="transit-line"><i></i></div>
+        <p>LIGHT</p>
+      </div>
+    </article>
+  </section>
+</BaseLayout>

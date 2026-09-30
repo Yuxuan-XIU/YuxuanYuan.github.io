@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+import { site } from "../data/site";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout title="About · Yuxuan Yuan" description="About Yuxuan Yuan, a PhD student in astronomy at Tsinghua University.">
+  <SectionIntro
+    eyebrow="About"
+    title="An astronomer interested in worlds beyond our own."
+    intro="I am a PhD student at Tsinghua University, working on exoplanet atmospheres, planet detection, and orbital dynamics."
+  />
+
+  <section class="about-profile shell">
+    <div class="about-photo">
+      <img src={`${base}assets/yuxuan-ditang.jpg`} alt="Yuxuan Yuan visiting the Temple of Earth in Beijing" />
+      <p>Outside the office, somewhere in Beijing.</p>
+    </div>
+    <div class="about-copy">
+      <p class="lead">I was born in Ji’an, Jiangxi, and grew up looking at the night sky from southern China. That early sense of scale and curiosity eventually led me to astronomy.</p>
+      <p>I studied at the University of Science and Technology of China before beginning my PhD at Tsinghua University. My research now moves between atmospheric signals, detection methods, and the orbital architectures of planetary systems.</p>
+      <p>Beyond research, I enjoy sharing astronomy with students and the wider public—especially when science can travel back into classrooms and communities that shaped me.</p>
+      <div class="about-actions">
+        <a class="button button-primary" href={`mailto:${site.email}`}>Email me</a>
+        <a class="button button-quiet" href={site.cv} target="_blank" rel="noreferrer">Read my CV <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline shell" aria-labelledby="timeline-heading">
+    <div class="section-heading">
+      <p class="section-kicker">Education</p>
+      <h2 id="timeline-heading">A short trajectory.</h2>
+    </div>
+    <ol>
+      <li>
+        <time>2026—present</time>
+        <div><h3>PhD in Astronomy</h3><p>Tsinghua University · Beijing, China</p></div>
+      </li>
+      <li>
+        <time>2022—2026</time>
+        <div><h3>Undergraduate study</h3><p>University of Science and Technology of China · Hefei, China</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="contact-strip shell">
+    <p>Have an interesting question?</p>
+    <a href={`mailto:${site.email}`}>{site.email} <span aria-hidden="true">↗</span></a>
+  </section>
+</BaseLayout>

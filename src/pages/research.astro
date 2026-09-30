@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+import { researchAreas } from "../data/site";
+import { projects } from "../data/projects";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout title="Research · Yuxuan Yuan" description="Research by Yuxuan Yuan on exoplanet atmospheres, planet detection, and orbital dynamics.">
+  <SectionIntro
+    eyebrow="Research"
+    title="How do we find—and understand—another world?"
+    intro="I approach exoplanets from three connected directions: their atmospheres, the signals that reveal them, and the dynamics that shape their orbits."
+  />
+
+  <section class="research-pillars shell" aria-label="Research areas">
+    {researchAreas.map((area) => (
+      <article>
+        <p>{area.index}</p>
+        <h2>{area.title}</h2>
+        <p>{area.description}</p>
+      </article>
+    ))}
+  </section>
+
+  <section class="project-list shell" aria-labelledby="project-list-heading">
+    <div class="section-heading">
+      <p class="section-kicker">Current coordinates</p>
+      <h2 id="project-list-heading">Selected projects</h2>
+    </div>
+    {projects.map((project) => (
+      <article class="project-detail" id={project.slug}>
+        <header>
+          <p class="project-number">{project.number}</p>
+          <div>
+            <p class="project-tag">{project.eyebrow} <span>·</span> {project.status}</p>
+            <h3>{project.title}</h3>
+            <p class="project-summary">{project.summary}</p>
+          </div>
+        </header>
+        <div class:list={["project-figures", { "project-figures-double": project.images.length > 1 }]}>
+          {project.images.map((image) => (
+            <figure>
+              <a href={`${base}${image.src}`} target="_blank" aria-label={`Open full-size figure: ${image.alt}`}>
+                <img src={`${base}${image.src}`} alt={image.alt} loading="lazy" />
+              </a>
+              <figcaption>{image.caption} <span>Open figure ↗</span></figcaption>
+            </figure>
+          ))}
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

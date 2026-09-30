@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionIntro from "../components/SectionIntro.astro";
+
+const resources = [
+  { name: "NASA Exoplanet Archive", kind: "Database", href: "https://exoplanetarchive.ipac.caltech.edu/", note: "Confirmed planets, candidates, host stars, and mission data." },
+  { name: "The Extrasolar Planets Encyclopaedia", kind: "Catalogue", href: "https://exoplanet.eu/", note: "A long-running catalogue of planets beyond the Solar System." },
+  { name: "NASA ADS", kind: "Literature", href: "https://ui.adsabs.harvard.edu/", note: "The literature search I return to for astronomy and astrophysics." },
+  { name: "Astropy", kind: "Software", href: "https://www.astropy.org/", note: "A foundational Python toolkit for working with astronomical data." }
+];
+---
+
+<BaseLayout title="Other Stuff · Yuxuan Yuan" description="Notes, resources, small projects, and other things collected by Yuxuan Yuan.">
+  <SectionIntro
+    eyebrow="Other Stuff"
+    title="Notes, useful links, and things that do not quite fit elsewhere."
+    intro="A growing shelf for reading notes, small experiments, research tools, and the occasional thought from life around astronomy."
+  />
+
+  <section class="misc-grid shell">
+    <article class="misc-feature">
+      <p class="section-kicker">Notes & blog</p>
+      <h2>Field notes from the edge of a light curve.</h2>
+      <p>This space is ready for paper notes, research workflows, conference reflections, and longer pieces about exoplanets. The first entry is still in orbit.</p>
+      <span class="coming-label">Writing soon</span>
+    </article>
+    <article class="misc-small">
+      <p class="section-kicker">Small projects</p>
+      <h2>Experiments<br />& notebooks</h2>
+      <p>Compact simulations, useful code, and visual ideas will collect here as they become ready to share.</p>
+    </article>
+  </section>
+
+  <section class="resources shell" aria-labelledby="resources-heading">
+    <div class="section-heading">
+      <p class="section-kicker">A useful shelf</p>
+      <h2 id="resources-heading">Resources I return to.</h2>
+    </div>
+    <div class="resource-list">
+      {resources.map((resource, index) => (
+        <a href={resource.href} target="_blank" rel="noreferrer">
+          <span class="resource-index">{String(index + 1).padStart(2, "0")}</span>
+          <span class="resource-main"><strong>{resource.name}</strong><small>{resource.note}</small></span>
+          <span class="resource-kind">{resource.kind}</span>
+          <span class="resource-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
