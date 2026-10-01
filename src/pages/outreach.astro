@@ -1,13 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionIntro from "../components/SectionIntro.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title="Outreach · Yuxuan Yuan" description="Astronomy outreach and public talks by Yuxuan Yuan.">
   <SectionIntro
     eyebrow="Outreach"
-    title="Sharing stories of exoplanet"
-    intro="I believe that knowledge should be accessible to everyone. Through public talks and outreach, I share stories of exoplanets with people from different backgrounds, creating spaces where anyone can encounter astronomy with curiosity and on their own terms."
+    title="Sharing the questions that make astronomy exciting."
+    intro="Science is not only a set of results. It is also a way of asking questions together. I enjoy creating spaces where more people can encounter astronomy on their own terms."
   />
 
   <section class="outreach-stories shell" aria-label="Outreach stories">
@@ -39,12 +41,14 @@ import SectionIntro from "../components/SectionIntro.astro";
         <p class="section-kicker">School visit</p>
         <h2>Taking exoplanets back to my high school.</h2>
         <p>At Luotian High School, my former school, I introduced students to the worlds beyond our Solar System: how we detect them, what their light can tell us, and why these distant planets are worth searching for.</p>
-        <p class="story-note">Photographs from the visit can be added when available.</p>
+        <p class="story-note">An introduction to exoplanet detection for students at Luotian High School.</p>
       </div>
-      <div class="story-visual story-visual-transit" aria-hidden="true">
-        <div class="transit-star"></div>
-        <div class="transit-line"><i></i></div>
-        <p>LIGHT</p>
+      <div class="story-visual story-visual-photo">
+        <img
+          src={`${base}assets/outreach/luotian-high-school-talk.jpg`}
+          alt="Yuxuan Yuan giving an exoplanet outreach talk to students at Luotian High School"
+          loading="lazy"
+        />
       </div>
     </article>
   </section>
