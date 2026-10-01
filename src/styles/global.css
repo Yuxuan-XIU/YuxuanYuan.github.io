@@ -255,7 +255,7 @@ h2 {
   line-height: 1.03;
   letter-spacing: -.035em;
 }
-.research-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+.research-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .research-area { min-height: 290px; padding: 1.5rem 2rem 2rem 0; border-right: 1px solid var(--line); }
 .research-area + .research-area { padding-left: 2rem; }
 .research-area:last-child { border-right: 0; }
@@ -504,6 +504,7 @@ h2 {
   .section-heading h2 { margin-bottom: 2.5rem; }
   .research-grid { grid-template-columns: 1fr; }
   .research-area, .research-area + .research-area { min-height: 0; padding: 1.5rem 0 2.4rem; border-right: 0; border-bottom: 1px solid var(--line); }
+  .research-area:last-child { border-bottom: 0; }
   .research-area h3 { margin-top: 2rem; }
   .home-projects, .home-outreach, .project-list { padding-block: 6rem; }
   .project-preview-grid, .home-outreach, .page-intro, .misc-grid, .about-profile { grid-template-columns: 1fr; }
