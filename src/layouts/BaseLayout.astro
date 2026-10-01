@@ -75,7 +75,7 @@ const navItems = [
         <span>YUXUAN YUAN</span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
-        <span>Menu</span>
+        <span>{isZh ? "菜单" : "Menu"}</span>
       </button>
       <nav id="site-navigation" aria-label="Primary navigation">
         {navItems.map(([label, path]) => (
