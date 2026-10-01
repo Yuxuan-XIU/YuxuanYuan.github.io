@@ -23,7 +23,7 @@ export const projects = [
     slug: "vega-companion",
     number: "02",
     eyebrow: "Planet detection",
-    title: "Constraining a Planet Candidate around Vega",
+    title: "Searching exoplanet around Vega",
     summary: "Searching for a possible planetary signal around Vega in high-resolution spectra by searrching atmospheric emission features and constraining its properties through injection-and-recovery tests.",
     status: "Research project",
     images: [
