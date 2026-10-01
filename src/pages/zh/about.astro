@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site } from "../../data/site";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout lang="zh" title="关于 · 袁宇轩" description="袁宇轩的个人简介与教育经历。">
+  <section class="about-profile shell">
+    <div class="about-photo">
+      <div class="about-photo-frame">
+        <img src={`${base}assets/yuxuan-ditang.jpg`} alt="袁宇轩在北京地坛公园" />
+      </div>
+      <p>在北京地坛公园的地坛书市，我找到了一本可以加入收藏的口袋版《指环王》。</p>
+    </div>
+    <div class="about-copy">
+      <header class="about-heading">
+        <p class="eyebrow"><span></span>关于</p>
+        <h1>系外行星探索者。</h1>
+        <p class="about-intro">我是清华大学天文学博士生，研究系外行星探测、大气与轨道动力学。</p>
+      </header>
+      <section class="education" aria-labelledby="education-heading">
+        <h2 id="education-heading">教育经历</h2>
+        <ol>
+          <li>
+            <time>2026—至今</time>
+            <div><h3>天文学博士</h3><p>清华大学</p></div>
+          </li>
+          <li>
+            <time>2022—2026</time>
+            <div><h3>天文学学士</h3><p>中国科学技术大学</p></div>
+          </li>
+        </ol>
+      </section>
+      <p class="lead">我出生于江西吉安，在乡村长大。远离城市灯光，我在中国南方的星空下度过童年。我也是科幻作品的爱好者；这份早期的好奇与对科幻的热爱，最终把我带向了天文学。</p>
+      <p>研究之外，我喜欢单口喜剧和小品，也一直想有一天能登上开放麦——成为喜剧演员或许是我的第二个梦想。我也喜欢写故事，以及为朋友制作一些小应用。</p>
+      <div class="about-actions">
+        <a class="button button-primary" href={`mailto:${site.email}`}>给我写信</a>
+        <a class="button button-quiet" href={site.cv} target="_blank" rel="noreferrer">查看简历 <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-strip shell">
+    <p>有一个有趣的问题？</p>
+    <a href={`mailto:${site.email}`}>{site.email} <span aria-hidden="true">↗</span></a>
+  </section>
+</BaseLayout>

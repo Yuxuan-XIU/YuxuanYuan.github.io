@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionIntro from "../../components/SectionIntro.astro";
+import { zhResearchAreas, zhProjects } from "../../data/zh";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout lang="zh" title="研究 · 袁宇轩" description="袁宇轩关于系外行星探测、大气与轨道动力学的研究。">
+  <SectionIntro
+    eyebrow="研究"
+    title="如何看见另一个世界？"
+    intro="我从三个彼此关联的方向研究系外行星：发现它们的信号、揭示它们的大气，以及塑造其轨道的动力学。"
+  />
+
+  <section class="research-pillars shell" aria-label="研究方向">
+    {zhResearchAreas.map((area) => (
+      <article>
+        <p>{area.index}</p>
+        <h2>{area.title}</h2>
+        <p>{area.description}</p>
+      </article>
+    ))}
+  </section>
+
+  <section class="project-list shell" aria-labelledby="project-list-heading">
+    <div class="section-heading">
+      <p class="section-kicker">当前坐标</p>
+      <h2 id="project-list-heading">精选项目</h2>
+    </div>
+    {zhProjects.map((project) => (
+      <article class="project-detail" id={project.slug}>
+        <header>
+          <p class="project-number">{project.number}</p>
+          <div>
+            <p class="project-tag">{project.eyebrow} <span>·</span> {project.status}</p>
+            <h3>{project.title}</h3>
+            <p class="project-summary">{project.summary}</p>
+          </div>
+        </header>
+        <div class:list={["project-figures", { "project-figures-double": project.images.length > 1 }]}>
+          {project.images.map((image) => (
+            <figure>
+              <a href={`${base}${image.src}`} target="_blank" aria-label={`打开大图：${image.alt}`}>
+                <img src={`${base}${image.src}`} alt={image.alt} loading="lazy" />
+              </a>
+              <figcaption>{image.caption} <span>打开图片 ↗</span></figcaption>
+            </figure>
+          ))}
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

@@ -5,26 +5,35 @@ import { site } from "../data/site";
 interface Props {
   title?: string;
   description?: string;
+  lang?: "en" | "zh";
 }
 
 const {
   title = `${site.name} · Exoplanet Researcher`,
-  description = "Yuxuan Yuan is a PhD student in astronomy at Tsinghua University studying exoplanet atmospheres, detection, and orbital dynamics."
+  description = "Yuxuan Yuan is a PhD student in astronomy at Tsinghua University studying exoplanet atmospheres, detection, and orbital dynamics.",
+  lang = "en"
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const currentPath = Astro.url.pathname;
+const isZh = lang === "zh";
+const languagePrefix = isZh ? "zh/" : "";
+const relativePath = currentPath.startsWith(base) ? currentPath.slice(base.length) : "";
+const counterpartPath = isZh ? relativePath.replace(/^zh\/?/, "") : `zh/${relativePath}`;
+const languageHref = `${base}${counterpartPath}`;
+const englishPath = isZh ? `${base}${relativePath.replace(/^zh\/?/, "")}` : currentPath;
+const chinesePath = isZh ? currentPath : `${base}zh/${relativePath}`;
 const ogImage = new URL(`${base}og.jpg`, Astro.site);
 const navItems = [
-  ["About", "about/"],
-  ["Research", "research/"],
-  ["Outreach", "outreach/"],
-  ["Stuffs", "stuffs/"]
+  [isZh ? "关于" : "About", "about/"],
+  [isZh ? "研究" : "Research", "research/"],
+  [isZh ? "科普" : "Outreach", "outreach/"],
+  [isZh ? "其他" : "Stuffs", "stuffs/"]
 ] as const;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={isZh ? "zh-CN" : "en"}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -32,7 +41,8 @@ const navItems = [
     <meta name="theme-color" content="#070b14" id="theme-color" />
     <script is:inline>
       (() => {
-        const saved = localStorage.getItem('site-theme');
+        let saved = null;
+        try { saved = localStorage.getItem('site-theme'); } catch {}
         const theme = saved === 'light' || saved === 'dark'
           ? saved
           : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
@@ -51,11 +61,14 @@ const navItems = [
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <link rel="canonical" href={Astro.url} />
+    <link rel="alternate" hreflang="en" href={new URL(englishPath, Astro.site)} />
+    <link rel="alternate" hreflang="zh-CN" href={new URL(chinesePath, Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(englishPath, Astro.site)} />
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
     <title>{title}</title>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">{isZh ? "跳到正文" : "Skip to content"}</a>
     <header class="site-header">
       <a class="wordmark" href={base} aria-label={`${site.name}, home`}>
         <span class="wordmark-orbit" aria-hidden="true"><i></i></span>
@@ -66,13 +79,14 @@ const navItems = [
       </button>
       <nav id="site-navigation" aria-label="Primary navigation">
         {navItems.map(([label, path]) => (
-          <a class:list={{ active: currentPath.includes(`/${path}`) }} href={`${base}${path}`}>{label}</a>
+          <a class:list={{ active: currentPath.includes(`/${languagePrefix}${path}`) }} href={`${base}${languagePrefix}${path}`}>{label}</a>
         ))}
         <button class="theme-toggle" type="button" aria-label="Switch color theme">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
-          <span class="theme-toggle-label">Light</span>
+          <span class="theme-toggle-label">{isZh ? "浅色" : "Light"}</span>
         </button>
-        <a class="nav-cv" href={site.cv} target="_blank" rel="noreferrer">CV <span aria-hidden="true">↗</span></a>
+        <a class="language-toggle" href={languageHref} hreflang={isZh ? "en" : "zh-CN"}>{isZh ? "EN" : "中文"}</a>
+        <a class="nav-cv" href={site.cv} target="_blank" rel="noreferrer">{isZh ? "简历" : "CV"} <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
     <main id="main-content">
@@ -81,7 +95,7 @@ const navItems = [
     <footer class="site-footer shell">
       <div>
         <p class="footer-mark">YUXUAN YUAN</p>
-        <p>Exoplanet researcher · Tsinghua University</p>
+        <p>{isZh ? "系外行星研究者 · 清华大学" : "Exoplanet researcher · Tsinghua University"}</p>
       </div>
       <div class="footer-links">
         <a href={`mailto:${site.email}`}>{site.email}</a>
@@ -102,13 +116,18 @@ const navItems = [
       const themeToggle = document.querySelector('.theme-toggle');
       const themeLabel = document.querySelector('.theme-toggle-label');
       const themeColor = document.querySelector('#theme-color');
+      const languageToggle = document.querySelector('.language-toggle');
+      const isChinese = document.documentElement.lang.startsWith('zh');
 
       const updateThemeControl = () => {
         const current = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
         const next = current === 'dark' ? 'light' : 'dark';
-        if (themeLabel) themeLabel.textContent = next === 'light' ? 'Light' : 'Dark';
-        themeToggle?.setAttribute('aria-label', `Switch to ${next} theme`);
-        themeToggle?.setAttribute('title', `Switch to ${next} theme`);
+        if (themeLabel) themeLabel.textContent = isChinese
+          ? (next === 'light' ? '浅色' : '深色')
+          : (next === 'light' ? 'Light' : 'Dark');
+        const action = isChinese ? `切换为${next === 'light' ? '浅色' : '深色'}主题` : `Switch to ${next} theme`;
+        themeToggle?.setAttribute('aria-label', action);
+        themeToggle?.setAttribute('title', action);
         themeColor?.setAttribute('content', current === 'light' ? '#f4f7f9' : '#070b14');
       };
 
@@ -117,9 +136,13 @@ const navItems = [
         const current = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.dataset.theme = next;
-        localStorage.setItem('site-theme', next);
+        try { localStorage.setItem('site-theme', next); } catch {}
         updateThemeControl();
       });
+
+      if (languageToggle && window.location.hash) {
+        languageToggle.setAttribute('href', `${languageToggle.getAttribute('href')}${window.location.hash}`);
+      }
     </script>
   </body>
 </html>

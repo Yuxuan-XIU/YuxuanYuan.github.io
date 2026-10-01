@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionIntro from "../../components/SectionIntro.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout lang="zh" title="科普 · 袁宇轩" description="袁宇轩参与的天文科普与公众分享活动。">
+  <SectionIntro
+    eyebrow="科普"
+    title="分享系外行星的故事。"
+    intro="我相信知识应当向每个人开放。通过公众分享与科普活动，我希望让不同背景的人都能带着自己的好奇心遇见天文学。"
+  />
+
+  <section class="outreach-stories shell" aria-label="科普经历">
+    <article class="outreach-story">
+      <div class="story-index">
+        <span>01</span>
+        <p>妇女节<br />小型聚会</p>
+      </div>
+      <div class="story-copy">
+        <p class="section-kicker">分享</p>
+        <h2>“学术过家家”</h2>
+        <p>我曾在妇女节前后举办的小型聚会“学术过家家”中做过一次分享。这是一个更加开放、轻松的空间，让大家可以交流、反思，并谈谈学术工作周围的生活。</p>
+        <p class="story-note">演讲材料与照片将在之后补充。</p>
+      </div>
+      <div class="story-visual story-visual-talk" aria-hidden="true">
+        <span class="signal signal-a"></span>
+        <span class="signal signal-b"></span>
+        <span class="signal signal-c"></span>
+        <b>∞</b>
+      </div>
+    </article>
+
+    <article class="outreach-story outreach-story-reverse">
+      <div class="story-index">
+        <span>02</span>
+        <p>罗田中学<br />系外行星科普</p>
+      </div>
+      <div class="story-copy">
+        <p class="section-kicker">校园分享</p>
+        <h2>把系外行星带回母校。</h2>
+        <p>地球之外会有外星生命吗？如果有，我们要如何找到它们？在我的母校罗田中学，我从这个问题出发，带同学们走出太阳系：我们如何发现系外行星、光能够告诉我们什么，以及这些遥远世界如何让我们更接近回答人类最古老的问题之一——我们是否孤独？</p>
+        <p class="story-note">面向罗田中学学生的系外行星入门科普。</p>
+      </div>
+      <div class="story-visual story-visual-photo">
+        <img
+          src={`${base}assets/outreach/luotian-high-school-talk.jpg`}
+          alt="袁宇轩在罗田中学为学生进行系外行星科普"
+          loading="lazy"
+        />
+      </div>
+    </article>
+  </section>
+</BaseLayout>
