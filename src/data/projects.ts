@@ -28,7 +28,7 @@ export const projects = [
         caption: "A compact visualization of the planet’s transit chord."
       }
     ]
-  }
+  },
   {
     slug: "orbital-dynamics",
     number: "03",
@@ -48,5 +48,5 @@ export const projects = [
         caption: "Searching solution by optimizing reduced chi squire with Jnkepler"
       }
     ]
-  },
+  }
 ] as const;
