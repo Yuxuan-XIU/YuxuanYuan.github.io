@@ -28,7 +28,7 @@ export const projects = [
         caption: "A compact visualization of the planet’s transit chord."
       }
     ]
-  }
+  },
   {
     slug: "orbital-dynamics",
     number: "03",
