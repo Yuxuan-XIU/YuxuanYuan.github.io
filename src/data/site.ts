@@ -2,7 +2,7 @@ export const site = {
   name: "Yuxuan Yuan",
   role: "PhD Student in Astronomy",
   institution: "Tsinghua University",
-  email: "yuanyx26@tsinghua.edu.cn",
+  email: "yuanyx26@mails.tsinghua.edu.cn",
   github: "https://github.com/Yuxuan-XIU",
   linkedin: "https://www.linkedin.com/in/yuxuan-yuan-a40176350/",
   cv: `${import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`}cv-yuxuan-yuan.pdf`
